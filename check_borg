@@ -31,7 +31,7 @@ verbose=0
 
 usage(){
 	cat >&2 <<-FIN
-	usage: ${PROGNAME} [-C CONF] [-R REPO] [-w DATE] [-c DATE] [ -h -v ]
+	usage: ${PROGNAME} [-C CONF] [-R REPO] [-P PASSPHRASE] [-w DATE] [-c DATE] [ -h -v ]
 
 	REPO: borg repo-url
 	DATE: Any valid date for the date-command.
@@ -55,7 +55,7 @@ command -v "${BORG}" >/dev/null 2>/dev/null \
 command -v "${DATE}" >/dev/null 2>/dev/null \
 	|| error "No command '${DATE}' available."
 
-while getopts ":vhR:C:c:w:" opt; do
+while getopts ":vhR:P:C:c:w:" opt; do
 	case "${opt}" in
 		v)
 			verbose=$((verbose + 1))
@@ -65,6 +65,9 @@ while getopts ":vhR:C:c:w:" opt; do
 			;;
 		R)
 			export "BORG_REPO=${OPTARG}"
+			;;
+		P)
+			export "BORG_PASSPHRASE=${OPTARG}"
 			;;
 		C)
 			[ -e "${OPTARG}" ] || error "Configuration file '${OPTARG}' does not exist."

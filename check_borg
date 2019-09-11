@@ -42,7 +42,7 @@ usage(){
 
 	You have to specify in the environment:
 	  - BORG_REPO if you haven't passed the -R flag
-	  - BORG_PASSPHRASE if your repo is encrypted
+	  - BORG_PASSPHRASE if your repo is encrypted or use the -P flag instead
 	FIN
 	exit "${STATE_UNKNOWN}"
 }

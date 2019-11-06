@@ -21,7 +21,7 @@ Usable with nagios, icinga2 or any other nagios-fork.
 
 ## Passwords
 
-Export `BORG_PASSPHRASE`.
+Export `BORG_PASSPHRASE` or use the `-P` flag.
 
 # Requirements
 
